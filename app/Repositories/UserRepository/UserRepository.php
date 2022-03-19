@@ -1,6 +1,11 @@
 <?php
 namespace App\Repositories\UserRepository;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
+use App\Models\User;
+use MongoDB\Driver\Exception\LogicException;
+
 class UserRepository implements UserRepositoryInterface {
     protected $model;
 
@@ -8,7 +13,7 @@ class UserRepository implements UserRepositoryInterface {
         $this->model = $user;
     }
 
-    public function all(): array
+    public function all(): object
     {
         return $this->model->all();
     }
